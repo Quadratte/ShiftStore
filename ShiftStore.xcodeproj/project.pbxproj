@@ -56,6 +56,7 @@
 		10A0BF212E3FD407005F0B93 /* ShiftStore */ = {
 			isa = PBXGroup;
 			children = (
+				10A0BF2F2E3FD8E7005F0B93 /* Views */,
 				10A0BF2A2E3FD40B005F0B93 /* Application */,
 				10A0BF2D2E3FD420005F0B93 /* Controllers */,
 				10A0BF2C2E3FD419005F0B93 /* Data */,
@@ -97,6 +98,13 @@
 				10A0BF202E3FD407005F0B93 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		10A0BF2F2E3FD8E7005F0B93 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

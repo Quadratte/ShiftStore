@@ -10,9 +10,10 @@
 		10A0BF232E3FD407005F0B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF192E3FD407005F0B93 /* AppDelegate.swift */; };
 		10A0BF242E3FD407005F0B93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF1E2E3FD407005F0B93 /* SceneDelegate.swift */; };
 		10A0BF252E3FD407005F0B93 /* ShiftStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF1F2E3FD407005F0B93 /* ShiftStore.xcdatamodeld */; };
-		10A0BF262E3FD407005F0B93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF202E3FD407005F0B93 /* ViewController.swift */; };
+		10A0BF262E3FD407005F0B93 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF202E3FD407005F0B93 /* RegisterViewController.swift */; };
 		10A0BF272E3FD407005F0B93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10A0BF1A2E3FD407005F0B93 /* Assets.xcassets */; };
 		10F24A432E410F58009E8471 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F24A422E410F53009E8471 /* Extensions.swift */; };
+		10F24A452E411DE6009E8471 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F24A442E411DE0009E8471 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +22,10 @@
 		10A0BF1A2E3FD407005F0B93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10A0BF1B2E3FD407005F0B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10A0BF1E2E3FD407005F0B93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		10A0BF202E3FD407005F0B93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10A0BF202E3FD407005F0B93 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		10A0BF222E3FD407005F0B93 /* ShiftStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShiftStore.xcdatamodel; sourceTree = "<group>"; };
 		10F24A422E410F53009E8471 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		10F24A442E411DE0009E8471 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 		10A0BF2D2E3FD420005F0B93 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				10A0BF202E3FD407005F0B93 /* ViewController.swift */,
+				10F24A442E411DE0009E8471 /* MainViewController.swift */,
+				10A0BF202E3FD407005F0B93 /* RegisterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,8 +193,9 @@
 				10F24A432E410F58009E8471 /* Extensions.swift in Sources */,
 				10A0BF232E3FD407005F0B93 /* AppDelegate.swift in Sources */,
 				10A0BF242E3FD407005F0B93 /* SceneDelegate.swift in Sources */,
+				10F24A452E411DE6009E8471 /* MainViewController.swift in Sources */,
 				10A0BF252E3FD407005F0B93 /* ShiftStore.xcdatamodeld in Sources */,
-				10A0BF262E3FD407005F0B93 /* ViewController.swift in Sources */,
+				10A0BF262E3FD407005F0B93 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

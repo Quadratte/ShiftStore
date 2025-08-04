@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RegisterViewController.swift
 //  ShiftStore
 //
 //  Created by S&Q on 04.08.2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class RegisterViewController: UIViewController {
   
   lazy var userName: UITextField = {
     let userName = UITextField()
@@ -42,8 +42,13 @@ final class ViewController: UIViewController {
   
   lazy var mainButton: UIButton = {
     let button = UIButton()
-    return button.mainButton(title: "Регистрация")
+    return button.mainButton(title: "Регистрация", action: tapToRegister)
   }()
+  
+  lazy var tapToRegister: UIAction = UIAction { _ in
+    let mainVC = MainViewController()
+    self.navigationController?.pushViewController(mainVC, animated: true)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -97,7 +102,7 @@ final class ViewController: UIViewController {
 }
 
 
-extension ViewController: UITextFieldDelegate {
+extension RegisterViewController: UITextFieldDelegate {
   
   
   

@@ -31,7 +31,7 @@ final class RegisterViewController: UIViewController {
   
   lazy var dateOfBirth: UITextField = {
     let dateOfBirth = UITextField()
-    return dateOfBirth.registerTextField(placeholder: "Дата рождения ДД.ММ.ГГ", isSecureEntry: false)
+    return dateOfBirth.registerTextField(placeholder: "Дата рождения (дд.мм.гггг)", isSecureEntry: false)
   }()
   
   lazy var mainButton: UIButton = {
@@ -39,10 +39,21 @@ final class RegisterViewController: UIViewController {
     return button.mainButton(title: "Регистрация")
   }()
   
+  lazy var errorLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.numberOfLines = 0
+    label.textColor = .red
+    label.textAlignment = .center
+    label.isHidden = true
+    return label
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     setupConstraints()
+    setupActions()
   }
 
   private func setupUI() {
@@ -53,13 +64,14 @@ final class RegisterViewController: UIViewController {
     view.addSubview(userPassword)
     view.addSubview(confirmUserPassword)
     view.addSubview(mainButton)
+    view.addSubview(errorLabel)
   }
   
   private func setupConstraints() {
     
     NSLayoutConstraint.activate([
       
-      userFirstName.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+      userFirstName.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
       userFirstName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       userFirstName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       userFirstName.heightAnchor.constraint(equalToConstant: 42),
@@ -86,8 +98,12 @@ final class RegisterViewController: UIViewController {
       
       mainButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       mainButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      mainButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+      mainButton.topAnchor.constraint(equalTo: confirmUserPassword.bottomAnchor, constant: 20),
       mainButton.heightAnchor.constraint(equalToConstant: 48),
+      
+      errorLabel.topAnchor.constraint(equalTo: mainButton.bottomAnchor, constant: 20),
+      errorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      errorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
     ])
   }
   
@@ -132,19 +148,41 @@ final class RegisterViewController: UIViewController {
       mainButton.backgroundColor = .systemGray
       return false
     }
-    //let firstNameValid = userFirstName.count >= 2
+    
+    let firstNameValid = firstName.count >= 2 && firstName.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil
+    if !firstNameValid {
+      showError("Имя должно содержать только буквы, не менее двух")
+      return false
+    }
+    
+    let dateRegex = #"^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d$"#
+    let datePredicate = NSPredicate(format: "SELF MATCHES %@", dateRegex)
+    let dateValid = datePredicate.evaluate(with: dateOfBirth)
+    if !dateValid {
+        showError("Дата рождения должна быть в формате дд.мм.гггг")
+        return false
+    }
+    
+    if password != confirmPassword {
+        showError("Пароли не совпадают")
+        return false
+    }
+    
+    hideError()
+    mainButton.isEnabled = true
+    mainButton.backgroundColor = .blue
     return true
   }
   
-}
-
-
-
-
-
-extension RegisterViewController: UITextFieldDelegate {
+  private func showError(_ message: String) {
+      errorLabel.text = message
+      errorLabel.isHidden = false
+      mainButton.isEnabled = false
+      mainButton.backgroundColor = .systemGray
+  }
   
-  
-  
+  private func hideError() {
+      errorLabel.isHidden = true
+  }
 }
 

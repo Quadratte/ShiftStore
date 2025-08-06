@@ -32,7 +32,7 @@ extension UIButton {
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle(title, for: .normal)
     button.isEnabled = false
-    button.backgroundColor = .blue
+    button.backgroundColor = .systemGray
     button.layer.cornerRadius = 12
     return button
   }

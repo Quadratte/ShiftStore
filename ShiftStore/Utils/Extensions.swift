@@ -27,11 +27,12 @@ extension UITextField {
 
 extension UIButton {
   
-  func mainButton(title: String, action: UIAction) -> UIButton {
-    let button = UIButton(primaryAction: action)
+  func mainButton(title: String) -> UIButton {
+    let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle(title, for: .normal)
-    button.backgroundColor = .blue
+    button.isEnabled = false
+    button.backgroundColor = .systemGray
     button.layer.cornerRadius = 12
     return button
   }

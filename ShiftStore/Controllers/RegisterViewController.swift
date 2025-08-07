@@ -36,7 +36,7 @@ final class RegisterViewController: UIViewController {
   
   lazy var mainButton: UIButton = {
     let button = UIButton()
-    return button.mainButton(title: "Регистрация")
+    return button.mainButton(title: "Регистрация", bgColor: .systemGray)
   }()
   
   lazy var errorLabel: UILabel = {

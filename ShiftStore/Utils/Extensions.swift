@@ -20,19 +20,18 @@ extension UITextField {
     textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 42))
     textField.placeholder = placeholder
     textField.isSecureTextEntry = isSecureEntry
-    
     return textField
   }
 }
 
 extension UIButton {
   
-  func mainButton(title: String) -> UIButton {
+  func mainButton(title: String, bgColor: UIColor) -> UIButton {
     let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle(title, for: .normal)
     button.isEnabled = false
-    button.backgroundColor = .systemGray
+    button.backgroundColor = bgColor
     button.layer.cornerRadius = 12
     return button
   }

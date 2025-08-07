@@ -69,7 +69,7 @@ final class MainViewController: UIViewController {
     }
     
     let greetingVC = GreetingViewController()
-    greetingVC.configure(with: firstName)
+    greetingVC.configureLabel(name: firstName)
     present(greetingVC, animated: true)
   }
   

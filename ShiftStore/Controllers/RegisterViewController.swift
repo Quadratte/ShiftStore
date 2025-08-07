@@ -70,7 +70,6 @@ final class RegisterViewController: UIViewController {
   private func setupConstraints() {
     
     NSLayoutConstraint.activate([
-      
       userFirstName.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
       userFirstName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       userFirstName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),

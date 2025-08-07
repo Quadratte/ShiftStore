@@ -20,7 +20,6 @@ extension UITextField {
     textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 42))
     textField.placeholder = placeholder
     textField.isSecureTextEntry = isSecureEntry
-    
     return textField
   }
 }

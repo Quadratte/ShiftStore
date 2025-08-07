@@ -55,11 +55,17 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    100 //data.count
+    data.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    let item = data[indexPath.row]
+    
+    var config = cell.defaultContentConfiguration()
+    config.text = item.userFirstName
+    config.secondaryText = item.userLastName
+    cell.contentConfiguration = config
     return cell
   }
 }

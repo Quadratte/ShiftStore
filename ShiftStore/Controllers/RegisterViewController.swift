@@ -129,12 +129,15 @@ final class RegisterViewController: UIViewController {
     ]
     
     UserDefaults.standard.set(userData, forKey: "userData")
-    UserDefaults.standard.set(true, forKey: "isRegistered")
+    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
     
+    navigateToMainScreen()
+  }
+  
+  private func navigateToMainScreen() {
     let mainVC = MainViewController()
     self.navigationController?.setViewControllers([mainVC], animated: true)
   }
-  
   
   private func validateInputs() -> Bool {
     guard let firstName = userFirstName.text, !firstName.isEmpty,

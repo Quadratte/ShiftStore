@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1011790A2E43AEFF000F4838 /* MockTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101179092E43AEF4000F4838 /* MockTableData.swift */; };
 		104DEE262E449EDE0055BD38 /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DEE252E449ED60055BD38 /* GreetingViewController.swift */; };
+		104DEE292E44C0540055BD38 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DEE282E44C0500055BD38 /* NetworkLayer.swift */; };
+		104DEE2B2E44C60A0055BD38 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DEE2A2E44C6040055BD38 /* TableData.swift */; };
 		10A0BF232E3FD407005F0B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF192E3FD407005F0B93 /* AppDelegate.swift */; };
 		10A0BF242E3FD407005F0B93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF1E2E3FD407005F0B93 /* SceneDelegate.swift */; };
 		10A0BF252E3FD407005F0B93 /* ShiftStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10A0BF1F2E3FD407005F0B93 /* ShiftStore.xcdatamodeld */; };
@@ -19,8 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		101179092E43AEF4000F4838 /* MockTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableData.swift; sourceTree = "<group>"; };
 		104DEE252E449ED60055BD38 /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
+		104DEE282E44C0500055BD38 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		104DEE2A2E44C6040055BD38 /* TableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
 		10A0BEFE2E3FD3E7005F0B93 /* ShiftStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiftStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A0BF192E3FD407005F0B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10A0BF1A2E3FD407005F0B93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		104DEE272E44C03D0055BD38 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				104DEE282E44C0500055BD38 /* NetworkLayer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		10A0BEF52E3FD3E7005F0B93 = {
 			isa = PBXGroup;
 			children = (
@@ -62,7 +72,7 @@
 		10A0BF212E3FD407005F0B93 /* ShiftStore */ = {
 			isa = PBXGroup;
 			children = (
-				10A0BF2F2E3FD8E7005F0B93 /* Views */,
+				104DEE272E44C03D0055BD38 /* Services */,
 				10A0BF2A2E3FD40B005F0B93 /* Application */,
 				10A0BF2D2E3FD420005F0B93 /* Controllers */,
 				10A0BF2C2E3FD419005F0B93 /* Data */,
@@ -93,7 +103,7 @@
 		10A0BF2C2E3FD419005F0B93 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				101179092E43AEF4000F4838 /* MockTableData.swift */,
+				104DEE2A2E44C6040055BD38 /* TableData.swift */,
 				10A0BF1F2E3FD407005F0B93 /* ShiftStore.xcdatamodeld */,
 			);
 			path = Data;
@@ -107,13 +117,6 @@
 				104DEE252E449ED60055BD38 /* GreetingViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		10A0BF2F2E3FD8E7005F0B93 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		10F24A412E410F35009E8471 /* Utils */ = {
@@ -196,14 +199,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				104DEE292E44C0540055BD38 /* NetworkLayer.swift in Sources */,
 				10F24A432E410F58009E8471 /* Extensions.swift in Sources */,
 				10A0BF232E3FD407005F0B93 /* AppDelegate.swift in Sources */,
 				10A0BF242E3FD407005F0B93 /* SceneDelegate.swift in Sources */,
-				1011790A2E43AEFF000F4838 /* MockTableData.swift in Sources */,
 				104DEE262E449EDE0055BD38 /* GreetingViewController.swift in Sources */,
 				10F24A452E411DE6009E8471 /* MainViewController.swift in Sources */,
 				10A0BF252E3FD407005F0B93 /* ShiftStore.xcdatamodeld in Sources */,
 				10A0BF262E3FD407005F0B93 /* RegisterViewController.swift in Sources */,
+				104DEE2B2E44C60A0055BD38 /* TableData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

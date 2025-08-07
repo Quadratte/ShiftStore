@@ -53,7 +53,7 @@ class GreetingViewController: UIViewController {
       greetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       greetingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       
-      closeButton.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 40),
+      closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
       closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       closeButton.heightAnchor.constraint(equalToConstant: 48),

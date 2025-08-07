@@ -67,7 +67,10 @@ final class MainViewController: UIViewController {
       print("button did tapped")
       return
     }
-    present(GreetingViewController(), animated: true)
+    
+    let greetingVC = GreetingViewController()
+    greetingVC.configureLabel(name: firstName)
+    present(greetingVC, animated: true)
   }
   
 }

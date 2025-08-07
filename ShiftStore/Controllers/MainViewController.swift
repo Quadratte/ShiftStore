@@ -21,17 +21,22 @@ final class MainViewController: UIViewController {
   let greetingButton: UIButton = {
     let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
-    return button.mainButton(title: "Приветствие", bgColor: .blue)
+    button.setTitle("Приветствие", for: .normal)
+    button.backgroundColor = .blue
+    button.layer.cornerRadius = 12
+    return button
   }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     setupConstraints()
+    setupActions()
   }
   
-  func setupUI() {
+  private func setupUI() {
     tableView.dataSource = self
+    navigationItem.title = "Главный экран"
     view.backgroundColor = .white
     view.addSubview(tableView)
     view.addSubview(greetingButton)
@@ -51,6 +56,28 @@ final class MainViewController: UIViewController {
       
     ])
   }
+  
+  private func setupActions() {
+    greetingButton.addTarget(self, action: #selector(greetingButtonTapped), for: .touchUpInside)
+  }
+  
+  @objc private func greetingButtonTapped() {
+    guard let userData = UserDefaults.standard.dictionary(forKey: "userData") as? [String: String],
+          let firstName = userData["firstName"] else {
+      print("button did tapped")
+      return
+    }
+    
+    let alert = UIAlertController(
+      title: "Приветствие",
+      message: "Привет, \(firstName)! Рады видеть вас снова!",
+      preferredStyle: .alert
+    )
+    
+    alert.addAction(UIAlertAction(title: "Закрыть", style: .default))
+    present(alert, animated: true)
+  }
+  
 }
 
 extension MainViewController: UITableViewDataSource {

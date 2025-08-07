@@ -67,15 +67,7 @@ final class MainViewController: UIViewController {
       print("button did tapped")
       return
     }
-    
-    let alert = UIAlertController(
-      title: "Приветствие",
-      message: "Привет, \(firstName)! Рады видеть вас снова!",
-      preferredStyle: .alert
-    )
-    
-    alert.addAction(UIAlertAction(title: "Закрыть", style: .default))
-    present(alert, animated: true)
+    present(GreetingViewController(), animated: true)
   }
   
 }

@@ -1,5 +1,5 @@
 //
-//  GreetingController.swift
+//  GreetingViewController.swift
 //  ShiftStore
 //
 //  Created by S&Q on 07.08.2025.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class GreetingController: UIViewController {
+class GreetingViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    view.backgroundColor = .systemPink
+    view.backgroundColor = .white
   }
   
 }

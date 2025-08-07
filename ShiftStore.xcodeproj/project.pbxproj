@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1011790A2E43AEFF000F4838 /* MockTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101179092E43AEF4000F4838 /* MockTableData.swift */; };
 		104DEE262E449EDE0055BD38 /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DEE252E449ED60055BD38 /* GreetingViewController.swift */; };
 		104DEE292E44C0540055BD38 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DEE282E44C0500055BD38 /* NetworkLayer.swift */; };
 		104DEE2B2E44C60A0055BD38 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DEE2A2E44C6040055BD38 /* TableData.swift */; };
@@ -21,7 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		101179092E43AEF4000F4838 /* MockTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableData.swift; sourceTree = "<group>"; };
 		104DEE252E449ED60055BD38 /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		104DEE282E44C0500055BD38 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		104DEE2A2E44C6040055BD38 /* TableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				104DEE2A2E44C6040055BD38 /* TableData.swift */,
-				101179092E43AEF4000F4838 /* MockTableData.swift */,
 				10A0BF1F2E3FD407005F0B93 /* ShiftStore.xcdatamodeld */,
 			);
 			path = Data;
@@ -206,7 +203,6 @@
 				10F24A432E410F58009E8471 /* Extensions.swift in Sources */,
 				10A0BF232E3FD407005F0B93 /* AppDelegate.swift in Sources */,
 				10A0BF242E3FD407005F0B93 /* SceneDelegate.swift in Sources */,
-				1011790A2E43AEFF000F4838 /* MockTableData.swift in Sources */,
 				104DEE262E449EDE0055BD38 /* GreetingViewController.swift in Sources */,
 				10F24A452E411DE6009E8471 /* MainViewController.swift in Sources */,
 				10A0BF252E3FD407005F0B93 /* ShiftStore.xcdatamodeld in Sources */,

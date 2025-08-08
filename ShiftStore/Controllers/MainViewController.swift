@@ -8,17 +8,26 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+  var services: AppContainerProtocol
 
   private var tableData: [TableData] = []
-  private let networkLayer = NetworkLayer.shared
 
+  init(services: AppContainerProtocol) {
+      self.services = services
+      super.init(nibName: nil, bundle: nil)
+  }
+
+  required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+  }
+  
   let tableView: UITableView = {
     let tableView = UITableView()
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     return tableView
   }()
-
+  
   let greetingButton: UIButton = {
     let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +36,7 @@ final class MainViewController: UIViewController {
     button.layer.cornerRadius = 12
     return button
   }()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
@@ -35,46 +44,44 @@ final class MainViewController: UIViewController {
     setupActions()
     loadData()
   }
-
+  
   private func setupUI() {
     tableView.dataSource = self
     navigationItem.title = "Главный экран"
     view.backgroundColor = .white
     view.addSubview(tableView)
     view.addSubview(greetingButton)
+    
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      title: "Выход",
+      style: .plain,
+      target: self,
+      action: #selector(logout))
   }
-
+  
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
       tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
       tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
       tableView.bottomAnchor.constraint(equalTo: greetingButton.topAnchor, constant: -20),
-
+      
       greetingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       greetingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       greetingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -20),
       greetingButton.heightAnchor.constraint(equalToConstant: 48),
-
+      
     ])
   }
   
   private func loadData() {
-    
-    networkLayer.fetchProducts { [weak self] result in
-      DispatchQueue.main.async {
-        
-        switch result {
-        case .success(let products):
-          self?.tableData = products
-          self?.tableView.reloadData()
-        case .failure(let error):
-          print(error.localizedDescription)
-        }
-      }
+    services.network.fetchProducts {[weak self] data in
+        guard let self else { return }
+        tableData = data
+        self.tableView.reloadData()
     }
   }
-  
+   
   private func setupActions() {
     greetingButton.addTarget(
       self,
@@ -82,7 +89,7 @@ final class MainViewController: UIViewController {
       for: .touchUpInside
     )
   }
-
+  
   @objc private func greetingButtonTapped() {
     guard
       let userData = UserDefaults.standard.dictionary(forKey: "userData")
@@ -92,32 +99,46 @@ final class MainViewController: UIViewController {
       print("button did tapped")
       return
     }
-
+    
     let greetingVC = GreetingViewController()
     greetingVC.configureLabel(name: firstName)
     present(greetingVC, animated: true)
   }
+  
+  @objc private func logout() {
+    UserDefaults.standard.removeObject(forKey: "isUserLoggedIn")
+    UserDefaults.standard.removeObject(forKey: "userData")
+  
+    let registerVC = RegisterViewController(services: services)
+    let navController = UINavigationController(rootViewController: registerVC)
+    
+    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let window = windowScene.windows.first else {
+            return
+    }
+    
+    window.rootViewController = navController
+  }
+  
 }
 
 extension MainViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-    -> Int
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
     tableData.count
   }
-
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-    -> UITableViewCell
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
     let cell = tableView.dequeueReusableCell(
       withIdentifier: "cell",
       for: indexPath
     )
     let item = tableData[indexPath.row]
-
+    
     var config = cell.defaultContentConfiguration()
     config.text = item.title
-    config.secondaryText = String(item.price)
+    config.secondaryText = String("Price: \(item.price)$")
     cell.contentConfiguration = config
     return cell
   }

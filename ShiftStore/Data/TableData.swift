@@ -8,5 +8,4 @@
 struct TableData: Codable {
     let title: String
     let price: Double
-    
 }

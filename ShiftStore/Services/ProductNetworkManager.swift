@@ -12,7 +12,6 @@ protocol ProductNetworkManagerProtocol {
 }
 
 final class ProductNetworkManager: ProductNetworkManagerProtocol {
-  
   let networkSerivce: NetworkServiceProtocol
   
   init(networkSerivce: NetworkServiceProtocol) {

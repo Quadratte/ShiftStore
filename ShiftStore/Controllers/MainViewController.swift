@@ -8,11 +8,18 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+  var services: AppContainerProtocol
 
-  var networkService: ProductNetworkManagerProtocol?
-  
   private var tableData: [TableData] = []
-  //private let networkLayer = NetworkLayer.shared
+
+  init(services: AppContainerProtocol) {
+      self.services = services
+      super.init(nibName: nil, bundle: nil)
+  }
+
+  required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+  }
   
   let tableView: UITableView = {
     let tableView = UITableView()
@@ -68,11 +75,10 @@ final class MainViewController: UIViewController {
   }
   
   private func loadData() {
-    
-    networkService?.fetchProducts { [weak self] data in
-      guard let self else { return }
-      tableData = data
-      self.tableView.reloadData()
+    services.network.fetchProducts {[weak self] data in
+        guard let self else { return }
+        tableData = data
+        self.tableView.reloadData()
     }
   }
    
@@ -103,7 +109,7 @@ final class MainViewController: UIViewController {
     UserDefaults.standard.removeObject(forKey: "isUserLoggedIn")
     UserDefaults.standard.removeObject(forKey: "userData")
   
-    let registerVC = RegisterViewController()
+    let registerVC = RegisterViewController(services: services)
     let navController = UINavigationController(rootViewController: registerVC)
     
     guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

@@ -8,9 +8,16 @@
 import UIKit
 
 final class RegisterViewController: UIViewController {
-  
-  var networkService: ProductNetworkManagerProtocol?
-  
+  var services: AppContainerProtocol
+  init(services: AppContainerProtocol) {
+      self.services = services
+      super.init(nibName: nil, bundle: nil)
+  }
+
+  required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+  }
+
   lazy var userFirstName: UITextField = {
     let userName = UITextField()
     return userName.registerTextField(placeholder: "Введите имя", isSecureEntry: false)
@@ -70,7 +77,6 @@ final class RegisterViewController: UIViewController {
   }
   
   private func setupConstraints() {
-    
     NSLayoutConstraint.activate([
       userFirstName.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
       userFirstName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -136,8 +142,7 @@ final class RegisterViewController: UIViewController {
   }
   
   private func navigateToMainScreen() {
-    let mainVC = MainViewController()
-    mainVC.networkService = networkService
+    let mainVC = MainViewController(services: services)
     self.navigationController?.setViewControllers([mainVC], animated: true)
   }
   

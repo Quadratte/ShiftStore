@@ -8,7 +8,6 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-  
   func request<T: Decodable>(
     endPoint: String,
     host: String,
@@ -18,7 +17,6 @@ protocol NetworkServiceProtocol {
 }
 
 extension NetworkServiceProtocol {
-  
   func request<T: Decodable>(endPoint: String, completion: @escaping (Result<T, NetworkErrors>) -> Void) {
     request(
       endPoint: endPoint,

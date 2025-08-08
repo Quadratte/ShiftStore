@@ -6,7 +6,6 @@
 //
 
 enum NetworkErrors: Error {
-  
   case invalidParams
   case invalidURL
   case invalidResponse(String?)

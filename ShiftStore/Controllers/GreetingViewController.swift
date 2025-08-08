@@ -8,7 +8,6 @@
 import UIKit
 
 final class GreetingViewController: UIViewController {
-  
   let greetingLabel: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,8 +45,7 @@ final class GreetingViewController: UIViewController {
     view.addSubview(closeButton)
   }
   
-  private func setupConstraints() {
-    
+  private func setupConstraints() {    
     NSLayoutConstraint.activate([
       greetingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
       greetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

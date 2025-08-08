@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GreetingViewController: UIViewController {
+final class GreetingViewController: UIViewController {
   
   let greetingLabel: UILabel = {
     let label = UILabel()

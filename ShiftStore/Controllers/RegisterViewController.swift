@@ -9,6 +9,8 @@ import UIKit
 
 final class RegisterViewController: UIViewController {
   
+  var networkService: ProductNetworkManagerProtocol?
+  
   lazy var userFirstName: UITextField = {
     let userName = UITextField()
     return userName.registerTextField(placeholder: "Введите имя", isSecureEntry: false)
@@ -106,13 +108,12 @@ final class RegisterViewController: UIViewController {
     ])
   }
   
-  private func  setupActions() {
+  private func setupActions() {
     [userFirstName, userLastName, dateOfBirth, userPassword, confirmUserPassword].forEach {
       $0.addTarget(self, action: #selector(textFieldAdjust), for: .editingChanged)
     }
     
     mainButton.addTarget(self, action: #selector(mainButtonTapped), for: .touchUpInside)
-    
   }
   
   @objc private func textFieldAdjust() {
@@ -136,6 +137,7 @@ final class RegisterViewController: UIViewController {
   
   private func navigateToMainScreen() {
     let mainVC = MainViewController()
+    mainVC.networkService = networkService
     self.navigationController?.setViewControllers([mainVC], animated: true)
   }
   

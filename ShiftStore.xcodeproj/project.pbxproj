@@ -17,6 +17,12 @@
 		10A0BF272E3FD407005F0B93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10A0BF1A2E3FD407005F0B93 /* Assets.xcassets */; };
 		10F24A432E410F58009E8471 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F24A422E410F53009E8471 /* Extensions.swift */; };
 		10F24A452E411DE6009E8471 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F24A442E411DE0009E8471 /* MainViewController.swift */; };
+		10FACEFA2E4651B8007D47ED /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FACEF92E4651AE007D47ED /* Services.swift */; };
+		10FACEFC2E46527B007D47ED /* NetworkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FACEFB2E465274007D47ED /* NetworkEndpoints.swift */; };
+		10FACEFE2E465421007D47ED /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FACEFD2E465419007D47ED /* HTTPMethods.swift */; };
+		10FACF002E465491007D47ED /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FACEFF2E46548D007D47ED /* NetworkErrors.swift */; };
+		10FACF042E465DD9007D47ED /* ProductNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FACF032E465DCF007D47ED /* ProductNetworkManager.swift */; };
+		10FACF062E466395007D47ED /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FACF052E46638C007D47ED /* DIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		10A0BF222E3FD407005F0B93 /* ShiftStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShiftStore.xcdatamodel; sourceTree = "<group>"; };
 		10F24A422E410F53009E8471 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		10F24A442E411DE0009E8471 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		10FACEF92E4651AE007D47ED /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		10FACEFB2E465274007D47ED /* NetworkEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoints.swift; sourceTree = "<group>"; };
+		10FACEFD2E465419007D47ED /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
+		10FACEFF2E46548D007D47ED /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		10FACF032E465DCF007D47ED /* ProductNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductNetworkManager.swift; sourceTree = "<group>"; };
+		10FACF052E46638C007D47ED /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +60,11 @@
 		104DEE272E44C03D0055BD38 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				10FACF032E465DCF007D47ED /* ProductNetworkManager.swift */,
+				10FACEFF2E46548D007D47ED /* NetworkErrors.swift */,
+				10FACEFD2E465419007D47ED /* HTTPMethods.swift */,
+				10FACEFB2E465274007D47ED /* NetworkEndpoints.swift */,
+				10FACEF92E4651AE007D47ED /* Services.swift */,
 				104DEE282E44C0500055BD38 /* NetworkLayer.swift */,
 			);
 			path = Services;
@@ -112,6 +129,7 @@
 		10A0BF2D2E3FD420005F0B93 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				10FACF052E46638C007D47ED /* DIContainer.swift */,
 				10A0BF202E3FD407005F0B93 /* RegisterViewController.swift */,
 				10F24A442E411DE0009E8471 /* MainViewController.swift */,
 				104DEE252E449ED60055BD38 /* GreetingViewController.swift */,
@@ -203,10 +221,16 @@
 				10F24A432E410F58009E8471 /* Extensions.swift in Sources */,
 				10A0BF232E3FD407005F0B93 /* AppDelegate.swift in Sources */,
 				10A0BF242E3FD407005F0B93 /* SceneDelegate.swift in Sources */,
+				10FACEFC2E46527B007D47ED /* NetworkEndpoints.swift in Sources */,
 				104DEE262E449EDE0055BD38 /* GreetingViewController.swift in Sources */,
+				10FACEFA2E4651B8007D47ED /* Services.swift in Sources */,
+				10FACF062E466395007D47ED /* DIContainer.swift in Sources */,
+				10FACF002E465491007D47ED /* NetworkErrors.swift in Sources */,
 				10F24A452E411DE6009E8471 /* MainViewController.swift in Sources */,
+				10FACEFE2E465421007D47ED /* HTTPMethods.swift in Sources */,
 				10A0BF252E3FD407005F0B93 /* ShiftStore.xcdatamodeld in Sources */,
 				10A0BF262E3FD407005F0B93 /* RegisterViewController.swift in Sources */,
+				10FACF042E465DD9007D47ED /* ProductNetworkManager.swift in Sources */,
 				104DEE2B2E44C60A0055BD38 /* TableData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

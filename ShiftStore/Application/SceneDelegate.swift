@@ -10,16 +10,19 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
+  let container = DIContainer.shared
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard let scene = (scene as? UIWindowScene) else { return }
     self.window = UIWindow(windowScene: scene)
-    
+
     if UserDefaults.standard.bool(forKey: "isUserLoggedIn") {
       let mainVC = MainViewController()
+      mainVC.networkService = container.network
       self.window?.rootViewController = UINavigationController(rootViewController: mainVC)
     } else {
       let registrVC = RegisterViewController()
+      registrVC.networkService = container.network
       self.window?.rootViewController = UINavigationController(rootViewController: registrVC)
     }
     

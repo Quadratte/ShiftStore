@@ -8,9 +8,11 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+
+  var networkService: ProductNetworkManagerProtocol?
   
   private var tableData: [TableData] = []
-  private let networkLayer = NetworkLayer.shared
+  //private let networkLayer = NetworkLayer.shared
   
   let tableView: UITableView = {
     let tableView = UITableView()
@@ -48,7 +50,6 @@ final class MainViewController: UIViewController {
       style: .plain,
       target: self,
       action: #selector(logout))
-    
   }
   
   private func setupConstraints() {
@@ -68,20 +69,13 @@ final class MainViewController: UIViewController {
   
   private func loadData() {
     
-    networkLayer.fetchProducts { [weak self] result in
-      DispatchQueue.main.async {
-        
-        switch result {
-        case .success(let products):
-          self?.tableData = products
-          self?.tableView.reloadData()
-        case .failure(let error):
-          print(error.localizedDescription)
-        }
-      }
+    networkService?.fetchProducts { [weak self] data in
+      guard let self else { return }
+      tableData = data
+      self.tableView.reloadData()
     }
   }
-  
+   
   private func setupActions() {
     greetingButton.addTarget(
       self,
@@ -108,7 +102,7 @@ final class MainViewController: UIViewController {
   @objc private func logout() {
     UserDefaults.standard.removeObject(forKey: "isUserLoggedIn")
     UserDefaults.standard.removeObject(forKey: "userData")
-    
+  
     let registerVC = RegisterViewController()
     let navController = UINavigationController(rootViewController: registerVC)
     
@@ -119,6 +113,7 @@ final class MainViewController: UIViewController {
     
     window.rootViewController = navController
   }
+  
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -137,7 +132,7 @@ extension MainViewController: UITableViewDataSource {
     
     var config = cell.defaultContentConfiguration()
     config.text = item.title
-    config.secondaryText = String(item.price)
+    config.secondaryText = String("Price: \(item.price)$")
     cell.contentConfiguration = config
     return cell
   }

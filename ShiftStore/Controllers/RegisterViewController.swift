@@ -164,6 +164,12 @@ final class RegisterViewController: UIViewController {
       return false
     }
     
+    let lastNameValid = lastName.count >= 2 && lastName.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil
+    if !lastNameValid {
+      showError("Фамилия должна содержать только буквы, не менее двух")
+      return false
+    }
+    
     let dateRegex = #"^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d$"#
     let datePredicate = NSPredicate(format: "SELF MATCHES %@", dateRegex)
     let dateValid = datePredicate.evaluate(with: dateOfBirth)
